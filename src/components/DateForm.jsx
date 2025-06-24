@@ -1,13 +1,20 @@
-import Flatpickr from "react-flatpickr";
-import "flatpickr/dist/themes/dark.css";
-
-export default function DateForm() {
+export default function DateForm({ dates }) {
   return (
     <div className="form">
-      <Flatpickr
+      <label>Date de début :</label>
+      <input
         className="datepicker"
-        options={{ mode: "range", dateFormat: "j-M-Y" }}
-        placeholder="Sélectionnez une plage"
+        type="date"
+        value={dates?.fromDate}
+        onChange={e => dates?.setFromDate(e.target.value)}
+      />
+
+      <label>Date de fin :</label>
+      <input
+        className="datepicker"
+        type="date"
+        value={dates?.toDate}
+        onChange={e => dates?.setToDate(e.target.value)}
       />
     </div>
   );
