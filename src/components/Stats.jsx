@@ -1,12 +1,27 @@
 export default function Stats() {
+  const statsOptions = [
+    "Sum of profit",
+    "Sum of payout",
+    "Sum of revenu",
+    "Sum of cv",
+    "Average margin",
+    "Average of epc",
+  ];
+
   return (
-    <div>
-      <h3>Sum of profit</h3>
-      <h3>Sum of payout</h3>
-      <h3>Sum of revenu</h3>
-      <h3>Sum of cv</h3>
-      <h3>Average margin</h3>
-      <h3>Average of epc</h3>
+    <section className="stats">
+      {statsOptions.map(stat => (
+        <Stat type={stat} key={stat} />
+      ))}
+    </section>
+  );
+}
+
+function Stat({ type }) {
+  return (
+    <div className="stat">
+      <h4>{type}</h4>
+      <p>200$</p>
     </div>
   );
 }
